@@ -1,11 +1,27 @@
 package com.example.test.user.controller;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.test.user.dto.request.CreateUserRequest;
+import com.example.test.user.service.UserService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
+	
+	private final UserService userService;
+	
+	@PostMapping("/join")
+	public ResponseEntity<?> join(@RequestBody @Valid CreateUserRequest createUserRequest){
+		userService.createUser(createUserRequest.getEmail(), createUserRequest.getPassword());
+		return ResponseEntity.ok().build();
+	}
 	
 	
 }
