@@ -12,8 +12,12 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+    private final UserRepository userRepository;
+
+    public User readUser(Long id){
+        return userRepository.findById(id).orElseThrow();
+    }
 	
-	private final UserRepository userRepository;
 	
 	public void createUser(String email, String password) {
 		
