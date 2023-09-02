@@ -3,7 +3,7 @@ git-test
 
 
 ```mermaid
-  graph TD;
+  graph LR;
       A[구매]-->B;
       B[검증]-->C;
       C[결과];
