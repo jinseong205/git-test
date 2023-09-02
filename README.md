@@ -3,8 +3,9 @@ git-test
 
 
 ```mermaid
-
-flowchart TD
-  A[A]  --? B;
-  B[B];
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
 ```
